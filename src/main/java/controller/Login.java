@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		System.out.println("call login");
+		
 		String loginError = "";
 		try {
 		
@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 			User user = userDAO.checkLogin(username, password);
 			if (user == null) {
 				loginError = "account doesnt exist!";
-				System.out.println(loginError);
+				
 				request.setAttribute("userError", loginError);
 			} else {
 				
@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
 		} catch (WrongPasswordException e) {
 			
 			loginError = "Wrong password";
-			System.out.println(loginError);
+			
 			request.setAttribute("userError", loginError);
 
 		}

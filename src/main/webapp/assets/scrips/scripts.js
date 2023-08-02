@@ -17,7 +17,7 @@ var signInForm = document.querySelector('.js-sign-in-form');
 var signInRequest = document.querySelector('.js-sign-in-request');
 var loginRequest = document.querySelector('.js-login-request');
 var userForm = document.querySelector('.js-user-form');
-var errorBlock = document.querySelector('.js-error-block');
+
 
 var accountTab = document.querySelector('.js-account-tab');
 var cartTab = document.querySelector('.js-cart-tab');
@@ -61,11 +61,7 @@ function showLoginForm() {
 	userForm.classList.add('hide-modal');
 }
 
-function showError(){
-	
-	errorBlock.classList.remove('hide-mode')
 
-}
 cartIcon.onclick = function () {
     overlay.classList.remove('hide-modal');
     showModalTab(null, 'cart-tab');

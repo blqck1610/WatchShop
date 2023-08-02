@@ -333,12 +333,13 @@
 
 	<script type="text/javascript" src="./assets/scrips/scripts.js"></script>
 
-
 	<c:set var="userError" value="${requestScope.userError}"></c:set>
 	<c:if test="${userError != null}">
 		<script type="text/javascript">
-			console.log('error');
-			showError();
+			console.log('${userError}');
+			// show error login
+		//	showError();
+
 		</script>
 	</c:if>
 </body>

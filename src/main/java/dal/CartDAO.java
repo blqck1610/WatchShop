@@ -21,12 +21,12 @@ public class CartDAO extends DBContext {
 			ResultSet rs = statement.executeQuery();
 			Cart cart;
 			if (rs.next()) {
-				 
+
+			} else {
+				createNewCart(userID);
+				rs = statement.executeQuery();
 			}
-			else {
-				 createNewCart(userID);
-				 rs = statement.executeQuery();
-			};
+			;
 			cart = new Cart(rs.getInt(1), rs.getInt(2), getCartItems(rs.getString(3)));
 			return cart;
 
@@ -39,44 +39,45 @@ public class CartDAO extends DBContext {
 
 	private Cart createNewCart(int userID) {
 		// TODO Auto-generated method stub
-		String sqlQuery	= "INSERT INTO `cls`.`cart`\r\n"
-				+ "(`userID`,\r\n"
-				+ "`items`)\r\n"
-				+ "VALUES\r\n"
-				+ "(?,?);";
+		String sqlQuery = "INSERT INTO `cls`.`cart`\r\n" + "(`userID`,\r\n" + "`items`)\r\n" + "VALUES\r\n" + "(?,?);";
 		try {
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			statement.setInt(1, userID);
 			statement.setString(2, "");
-			
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+
 		return null;
 	}
 
 	private List<Item> getCartItems(String stringListItems) {
 		// TODO Auto-generated method stub
+
 		List<Item> listItems = new ArrayList<>();
+		if (stringListItems.equals("")) {
+			return listItems;
+		}
 		String[] stringItems = stringListItems.split(",");
-		for(int indexStringItems = 0; indexStringItems < stringItems.length; indexStringItems++) {
+		for (int indexStringItems = 0; indexStringItems < stringItems.length; indexStringItems++) {
 			String[] temp = stringItems[indexStringItems].split("-");
-			
+
 			int productID = Integer.parseInt(temp[0]);
 			int quantity = Integer.parseInt(temp[1]);
-			
+
 			ProduceDAO produceDAO = new ProduceDAO();
 			Product product = produceDAO.getProduct(productID);
-			double totalPrice  = quantity * product.getPrice();
-			
+			double totalPrice = quantity * product.getPrice();
+
 			Item item = new Item(product, quantity, totalPrice);
-			
+			listItems.add(item);
+
 		}
-		
-		return null;
+
+		return listItems;
 	}
 
 }
