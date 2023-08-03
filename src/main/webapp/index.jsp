@@ -326,13 +326,12 @@
 		<!-- footer -->
 		<%@ include file="footer.jsp"%>
 
-		<!--modal  -->
-		<%@ include file="modals.jsp"%>
+		
+	
 
 	</div>
 
 	<script type="text/javascript" src="./assets/scrips/scripts.js"></script>
-
 	<c:set var="userError" value="${requestScope.userError}"></c:set>
 	<c:if test="${userError != null}">
 		<script type="text/javascript">

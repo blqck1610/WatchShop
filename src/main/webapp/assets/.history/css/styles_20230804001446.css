@@ -83,8 +83,8 @@ html {
 	padding-bottom: 32px !important;
 }
 
-.ptb-160 {
-	padding: 160px 0 !important;
+.ptb-120 {
+	padding: 120px 0 !important;
 }
 
 .pl-4 {
@@ -961,16 +961,6 @@ html {
 	font-size: 12px;
 	color: #757575;
 }
-.empty-result{
-	width: 90%;
-	margin: auto;
-	justify-content: center;
-	align-items: center;
-}
-.no-result-title{
-	font-size: 30px;
-	color: #757575;
-}
 
 .page-controller {
 	width: 90%;
@@ -987,7 +977,6 @@ html {
 	padding: 0 8px;
 	margin: 0 4px;
 }
-
 
 
 

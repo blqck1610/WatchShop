@@ -49,4 +49,24 @@
     <servlet-name>CartProcess</servlet-name>
     <url-pattern>/cartProcess</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Home</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>controller.Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductDetails</display-name>
+    <servlet-name>ProductDetails</servlet-name>
+    <servlet-class>controller.ProductDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductDetails</servlet-name>
+    <url-pattern>/productDetails</url-pattern>
+  </servlet-mapping>
 </web-app>
