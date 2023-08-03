@@ -7,7 +7,7 @@ public class Product {
 	private int quantity;
 	private int categoryID;
 	private String img;
-	private int brand;
+	private String brand;
 	private String gender;
 	private String model;
 	private String movement;
@@ -27,7 +27,7 @@ public class Product {
 	public Product() {
 		super();
 	}
-	public Product(int idProduct, String productName, double price, int quantity, int categoryID, String img, int brand,
+	public Product(int idProduct, String productName, double price, int quantity, int categoryID, String img, String brand,
 			String gender, String model, String movement, String label, String engine, String powerReverse,
 			String dialColor, String type, double caseSize, String caseMaterial, String caseShape, String caseBack,
 			String bandMaterial, String bandType, String bandColor, String bandWidth) {
@@ -92,10 +92,10 @@ public class Product {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public int getBrand() {
+	public String getBrand() {
 		return brand;
 	}
-	public void setBrand(int brand) {
+	public void setBrand(String brand){
 		this.brand = brand;
 	}
 	public String getGender() {

@@ -1,5 +1,11 @@
 package controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import dal.CartDAO;
+import dal.UserDAO;
+import exception.WrongPasswordException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -7,12 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Cart;
 import model.User;
-
-import java.io.IOException;
-
-import dal.CartDAO;
-import dal.UserDAO;
-import exception.WrongPasswordException;
 
 /**
  * Servlet implementation class Login
@@ -35,8 +35,11 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 
 		
 		String loginError = "";
@@ -59,6 +62,8 @@ public class Login extends HttpServlet {
 				session.setAttribute("user", user);
 				session.setAttribute("cart", cart);
 				System.out.println("login susccess");
+				session.setMaxInactiveInterval(60*10);
+				response.sendRedirect("./home");
 
 			}
 		
@@ -67,12 +72,10 @@ public class Login extends HttpServlet {
 			loginError = "Wrong password";
 			
 			request.setAttribute("userError", loginError);
-
-		}
-		finally {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
 		}
+		
 
 	}
 

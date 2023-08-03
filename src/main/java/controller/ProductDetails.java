@@ -1,23 +1,24 @@
 package controller;
 
+import java.io.IOException;
+
+import dal.ProductDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
-import java.io.IOException;
+import model.Product;
 
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class ProductDetails
  */
-public class Logout extends HttpServlet {
+public class ProductDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public ProductDetails() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +28,20 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		session.removeAttribute("user");
-		response.sendRedirect("./home");
+//		String productIdRaw =(String) request.getParameter("productID");
+		String productIdRaw = "1";
+		
+		ProductDAO productDAO = new ProductDAO();
+		Product product = productDAO.getProduct(Integer.parseInt(productIdRaw));
+		if (product != null) {
+			request.setAttribute("product", product);
+			System.out.println(product.getProductName());
+//			request.getRequestDispatcher("productDetails.jsp").forward(request, response);
+		}
+		
+		
+		
+		
 	}
 
 	/**

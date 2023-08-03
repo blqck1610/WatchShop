@@ -68,7 +68,7 @@ public class CartDAO extends DBContext {
 			int productID = Integer.parseInt(temp[0]);
 			int quantity = Integer.parseInt(temp[1]);
 
-			ProduceDAO produceDAO = new ProduceDAO();
+			ProductDAO produceDAO = new ProductDAO();
 			Product product = produceDAO.getProduct(productID);
 			double totalPrice = quantity * product.getPrice();
 
