@@ -1,29 +1,60 @@
 package model;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Cart {
 	private int idCart;
 	private int userID;
-	private List<Item> items;
+	private Map<Product, Integer> items;
 	private double totalPrice;
-	public Cart(int idCart, int userID, List<Item> items) {
+	private double saving;
+	public double getSaving() {
+		double temp = 0.0;
+		Set<Product> products = items.keySet();
+		for(Product product : products) {
+			temp +=  (product.getSaleValue()*product.getPrice()/100)*items.get(product);
+		}
+		
+		return temp;
+	}
+	public void setSaving(double saving) {
+		this.saving = saving;
+	}
+	public void setItems(Map<Product, Integer> items) {
+		this.items = items;
+	}
+	public Cart(int idCart, int userID, Map<Product, Integer> items) {
 		super();
 		this.idCart = idCart;
 		this.userID = userID;
 		this.items = items;
-		this.totalPrice = getTotalPrice(items);
+		this.totalPrice = getTotalPrice();
 	}
-	private double getTotalPrice(List<Item> items) {
-		// TODO Auto-generated method stub
+	public double getTotalPrice() {
 		Double temp = 0.0;
-		for(Item item : items) {
-			temp += item.getTotalPrice();
+		Set<Product> products = items.keySet();
+		for(Product product : products) {
+			temp += (product.getPrice() - product.getSaleValue() * product.getPrice()/100) * items.get(product);
 		}
-		return 0;
+		
+		return temp;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 	public Cart() {
 		super();
+		items = new HashMap<>();
+	}
+	public Cart(int idCart, int userID, Map<Product, Integer> items, double totalPrice, double saving) {
+		super();
+		this.idCart = idCart;
+		this.userID = userID;
+		this.items = items;
+		this.totalPrice = totalPrice;
+		this.saving = saving;
 	}
 	public int getIdCart() {
 		return idCart;
@@ -37,18 +68,12 @@ public class Cart {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	public List<Item> getItems() {
+	public Map<Product, Integer> getItems() {
 		return items;
 	}
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
-	public double getTotalPrice() {
-		return totalPrice;
-	}
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+	
+	
+	
 	
 	
 }

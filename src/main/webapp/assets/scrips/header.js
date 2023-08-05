@@ -46,6 +46,14 @@ userIcon.onclick = function () {
     tabLink.className += ' active';
 	
 }
+
+function openLoginForm(){
+	console.log("aasdas");
+	overlay.classList.remove('hide-modal');
+    showModalTab(null, 'account-tab');
+    var tabLink = document.getElementById('js-account-tab-link');
+    tabLink.className += ' active';
+}
 // show signin form
 
 

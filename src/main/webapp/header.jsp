@@ -32,7 +32,8 @@
 				<div class="user-header">
 					<div class="user-icon">
 						<i class="ti-user icon js-user-icon"></i> <i
-							class="ti-shopping-cart icon js-cart-icon"><sub>0</sub> </i>
+							class="ti-shopping-cart icon js-cart-icon"><sub>${(cart != null) ? cart.items.size() : "0" } </sub>
+						</i>
 					</div>
 
 
@@ -793,68 +794,79 @@
 
 						<div class="main-content">
 							<div class="cart-items col1">
-								<div class="cart-item">
-									<!-- img & label -->
-									<div class="row">
-										<div class="col">
-											<img
-												src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-												alt="">
-										</div>
-										<div class="col1">
-											<p class="brand-label">Tên hãng</p>
-											<p class="item-name">Tên produce</p>
-										</div>
-									</div>
-									<!-- price and quatity -->
-									<div class="row no-wrap">
-										<div class="col">
-											<div class="row no-wrap">
-												<span class="col new-price">giá mới</span> <span
-													class="col old-price"> giá cũ</span>
+								
+								<c:forEach var ="item" items="${cart.items }">
+
+									<div class="cart-item">
+										<!-- img & label -->
+										<div class="row">
+											<div class="col">
+												<img
+													src="./assets/images/product/${item.key.img }/${item.key.img }_1.jpg"
+													alt="">
+											</div>
+											<div class="col1">
+												<p class="brand-label">${item.key.brand }</p>
+												<p class="item-name">${item.key.productName }</p>
 											</div>
 										</div>
-										<!-- quatity -->
-										<div class="col1 ">
+										<!-- price and quatity -->
+										<div class="row no-wrap">
+											<div class="col">
+												<c:if test="${item.key.saleValue > 0}">
+												<div class="row no-wrap">
+													<span class="col new-price">$${(item.key.price - item.key.price
+								* item.key.saleValue / 100)  }</span> <span
+														class="col old-price">$${item.key.price }</span>
+												</div>
+												</c:if>
+												
+												<c:if test="${item.key.saleValue == 0}">
+												<span class="col new-price">$${item.key.price }</span>
+												</c:if>
+											</div>
+											<!-- quatity -->
+											<div class="col1 ">
 
-											<div class="row ">
-												<a href="" class="sub-btn ">-</a> <input
-													style="width: 30% !important; margin: 0;" readonly
-													type="number" value="1"> <a href="" class="add-btn">+</a>
+												<div class="row ">
+													<a href="" class="sub-btn ">-</a> <input
+														style="width: 30% !important; margin: 0;" readonly
+														type="number" value="${item.value }"> <a href=""
+														class="add-btn">+</a>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="row ">
-										<span class="new-price col">total price</span>
-										<div class="col">
-											<a href="" class="mt-8">xóa khỏi giỏ hàng</a>
+										<div class="row ">
+											<span class="new-price col">total: $${(item.key.price - item.key.price
+								* item.key.saleValue / 100) * item.value}</span>
+											<div class="col">
+												<a href="" class="mt-8">xóa khỏi giỏ hàng</a>
+											</div>
+											<div class="hr"></div>
 										</div>
-										<div class="hr"></div>
+										
 									</div>
-									<!-- btn remove -->
-
-								</div>
-
+								</c:forEach>
 
 								<div class="total-price col1">
 									<div class="row">
 										<label class="label">total price</label> <label for="">
-											tổng giá </label>
+											$${cart.totalPrice } </label>
 									</div>
 									<div class="row">
-										<label class="label">saving</label> <label for=""> %
-											giảm giá so với tổng ban đầu </label>
+										<label class="label">saving</label> <label for=""> 
+											$${cart.saving } </label>
 									</div>
 									<div class="row">
 										<label class="label">discount</label> <label for="">
-											số tiền giảm đc </label>
+											0</label>
 									</div>
 									<div class="row">
-										<label class="label">tax</label> <label for=""> thuế </label>
+										<label class="label">tax</label> <label for=""> 10% </label>
 									</div>
 									<div class="row">
 										<label class="label">Sub total</label> <label for="">
-											gia - discount </label>
+											$${cart.totalPrice + cart.totalPrice*10/100 } </label>
 									</div>
 								</div>
 							</div>

@@ -54,14 +54,12 @@ public class Login extends HttpServlet {
 				request.setAttribute("userError", loginError);
 			} else {
 				
-				CartDAO cartDAO = new CartDAO();
-				Cart cart = cartDAO.getCart(user.getUserID());
+				
 				
 
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
-				session.setAttribute("cart", cart);
-				System.out.println("login susccess");
+				
 				session.setMaxInactiveInterval(60*10);
 				response.sendRedirect("./home");
 

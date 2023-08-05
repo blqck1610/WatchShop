@@ -146,6 +146,12 @@ html {
 	font-weight: 600;
 	margin: 8px 4px;
 }
+.price{
+	font-weight: bold;
+	font-size: 20px;
+	padding: 4px;
+}
+
 
 .old-price {
 	text-decoration: line-through;
@@ -304,7 +310,7 @@ html {
 	position: absolute;
 	top: 100%;
 	left: 0;
-	background-color: rgba(243, 221, 221, 0.95);
+	background-color: rgba(206, 205, 205, 0.95);
 	padding: 40px 68px;
 	align-items: flex-start;
 	display: none;
@@ -799,6 +805,9 @@ html {
 	width: 50%;
 	cursor: pointer;
 }
+.product-detail .product-brand{
+	text-transform: uppercase;
+}
 
 .image-main .thumb-item {
 
@@ -967,6 +976,9 @@ html {
 	justify-content: center;
 	align-items: center;
 }
+.empty-result img{
+	max-width: 300px;
+}
 .no-result-title{
 	font-size: 30px;
 	color: #757575;
@@ -987,6 +999,8 @@ html {
 	padding: 0 8px;
 	margin: 0 4px;
 }
+
+
 
 
 

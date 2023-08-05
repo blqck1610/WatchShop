@@ -31,16 +31,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Cart</display-name>
-    <servlet-name>Cart</servlet-name>
-    <servlet-class>controller.Cart</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Cart</servlet-name>
-    <url-pattern>/cart</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>CartProcess</display-name>
     <servlet-name>CartProcess</servlet-name>
     <servlet-class>controller.CartProcess</servlet-class>
@@ -49,6 +39,8 @@
     <servlet-name>CartProcess</servlet-name>
     <url-pattern>/cartProcess</url-pattern>
   </servlet-mapping>
+  
+  
   <servlet>
     <description></description>
     <display-name>Home</display-name>
@@ -68,5 +60,15 @@
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
     <url-pattern>/productDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Process</display-name>
+    <servlet-name>Process</servlet-name>
+    <servlet-class>controller.Process</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Process</servlet-name>
+    <url-pattern>/process</url-pattern>
   </servlet-mapping>
 </web-app>

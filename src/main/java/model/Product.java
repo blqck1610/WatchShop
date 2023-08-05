@@ -1,5 +1,9 @@
 package model;
 
+import java.util.List;
+
+import dal.CommonDAO;
+
 public class Product {
 	private int idProduct;
 	private String productName;
@@ -8,6 +12,11 @@ public class Product {
 	private int categoryID;
 	private String img;
 	private String brand;
+	private int saleValue;
+	
+	
+	
+	
 	private String gender;
 	private String model;
 	private String movement;
@@ -55,6 +64,8 @@ public class Product {
 		this.bandType = bandType;
 		this.bandColor = bandColor;
 		this.bandWidth = bandWidth;
+		saleValue = (new CommonDAO()).getSaleValue(idProduct) ;
+		
 	}
 	public int getIdProduct() {
 		return idProduct;
@@ -194,6 +205,37 @@ public class Product {
 	public void setBandWidth(String bandWidth) {
 		this.bandWidth = bandWidth;
 	}
+	
+	public int getSaleValue() {
+		return saleValue;
+	}
+	public void setSaleValue(int saleValue) {
+		this.saleValue = saleValue;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) return false;
+		
+		if(obj instanceof Product) {
+			
+			if(this.idProduct == ((Product)obj).idProduct){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return this.idProduct + this.productName.hashCode();
+	}
+	
 	
 	
 }

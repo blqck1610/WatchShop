@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Cart;
-import model.Item;
+
 import model.Product;
 
 public class CartDAO extends DBContext {
@@ -27,8 +27,8 @@ public class CartDAO extends DBContext {
 				rs = statement.executeQuery();
 			}
 			;
-			cart = new Cart(rs.getInt(1), rs.getInt(2), getCartItems(rs.getString(3)));
-			return cart;
+//			cart = new Cart(rs.getInt(1), rs.getInt(2), getCartItems(rs.getString(3)));
+//			return cart;
 
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -54,30 +54,63 @@ public class CartDAO extends DBContext {
 		return null;
 	}
 
-	private List<Item> getCartItems(String stringListItems) {
-		// TODO Auto-generated method stub
+//	private List<Item> getCartItems(String stringListItems) {
+//
+//		
+//		if (stringListItems.equals("")) {
+//			
+//		}
+//		String[] stringItems = stringListItems.split(",");
+//		for (int indexStringItems = 0; indexStringItems < stringItems.length; indexStringItems++) {
+//			String[] temp = stringItems[indexStringItems].split("-");
+//
+//			int productID = Integer.parseInt(temp[0]);
+//			int quantity = Integer.parseInt(temp[1]);
+//
+//			ProductDAO produceDAO = new ProductDAO();
+//			Product product = produceDAO.getProduct(productID);
+//			double totalPrice = quantity * product.getPrice();
+//
+//			Item item = new Item(product, quantity, totalPrice);
+//			listItems.add(item);
+//
+//		}
+//
+//		return listItems;
+//	}
 
-		List<Item> listItems = new ArrayList<>();
-		if (stringListItems.equals("")) {
-			return listItems;
+	public void addItem(String item, int userID) {
+		String sql = "select item from cart where id = ?";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setInt(1, userID);
+			
+			ResultSet rs = statement.executeQuery();
+			String curItem = "";
+			if(rs.next()) {
+				curItem = rs.getString("item");
+			}
+			curItem += item +',';
+			sql = "UPDATE `cls`.`cart`\r\n"
+					+ "SET\r\n"
+					+ "`items` = ?,\r\n"
+					+ "WHERE  `userID` = ?;";
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, curItem);
+			statement.setInt(2, userID);
+			int kq = statement.executeUpdate();
+			System.out.println(kq);
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		String[] stringItems = stringListItems.split(",");
-		for (int indexStringItems = 0; indexStringItems < stringItems.length; indexStringItems++) {
-			String[] temp = stringItems[indexStringItems].split("-");
+		
+		 
 
-			int productID = Integer.parseInt(temp[0]);
-			int quantity = Integer.parseInt(temp[1]);
-
-			ProductDAO produceDAO = new ProductDAO();
-			Product product = produceDAO.getProduct(productID);
-			double totalPrice = quantity * product.getPrice();
-
-			Item item = new Item(product, quantity, totalPrice);
-			listItems.add(item);
-
-		}
-
-		return listItems;
 	}
 
 }
