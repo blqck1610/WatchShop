@@ -32,7 +32,41 @@ public class CartProcess extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
+//		String quantityRaw = request.getParameter("quantity");
+//		int quantity = Integer.parseInt(quantityRaw);
+//		String idProduct = request.getParameter("idProduct");
+//		HttpSession session = request.getSession();
+//
+//		Cart cart = (Cart) session.getAttribute("cart");
+//		if (cart == null) {
+//
+//			cart = new Cart();
+//		}
+//		ProductDAO productDAO = new ProductDAO();
+//		Product product = productDAO.getProduct(Integer.parseInt(idProduct));
+//
+//		if (cart.getItems().containsKey(product)) {
+//			cart.getItems().put(product, cart.getItems().get(product) + quantity);
+//		} else {
+//			cart.getItems().put(product, quantity);
+//		}
+//
+//		request.setAttribute("idProduct", idProduct);
+//		session.setAttribute("cart", cart);
+//		request.getRequestDispatcher("productDetails").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		doGet(request, response);
+		String quantityRaw = request.getParameter("quantity");
+		int quantity = Integer.parseInt(quantityRaw);
 		String idProduct = request.getParameter("idProduct");
 		HttpSession session = request.getSession();
 
@@ -52,18 +86,7 @@ public class CartProcess extends HttpServlet {
 
 		request.setAttribute("idProduct", idProduct);
 		session.setAttribute("cart", cart);
-		response.sendRedirect("productDetails");
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.getRequestDispatcher("productDetails").forward(request, response);
 	}
 
 }

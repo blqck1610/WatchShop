@@ -9,6 +9,18 @@
 </head>
 
 <body>
+	<div class="hr"></div>
+	<div class="container row social-page">
+		<div class="social-items">
+			<span class="">Social page </span> <a href="#"><i
+				class="ti-facebook social-icon"></i></a> <a href="#"><i
+				class="ti-instagram social-icon"></i></a> <a href="#"><i
+				class="ti-youtube social-icon"></i></a> <a href="#"><i
+				class="ti-twitter-alt social-icon"></i></a>
+		</div>
+		<a href="tel:+123456789">hotline: 0123456789</a>
+
+	</div>
 	<footer id="footer" class="col">
 		<div class="container row">
 			<div class="col col-3">

@@ -13,15 +13,15 @@ import java.util.List;
 import dal.ProductDAO;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class MenWatches
  */
-public class Home extends HttpServlet {
+public class MenWatches extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public MenWatches() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,23 +31,23 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html; charset=UTF-8");
+		int page = 1;
+		if(request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
 		ProductDAO productDAO = new ProductDAO();
-		 
-		List<Product> productNames = productDAO.getProducts("productName", 4);
-		List<Product> productNews = productDAO.getProducts("idProduct", 8);
-		List<Product> productMens = productDAO.getProductsByGender("Nam", 8);
-		List<Product> productWomens = productDAO.getProductsByGender("Nữ", 8);
+		List<Product> products = productDAO.getProductsByGender("nam", 20);
+		int itemsPerPage = 8;
 		
-	
+		int totalPage = (products.size() % itemsPerPage == 0)? products.size()/itemsPerPage : products.size() / itemsPerPage +1;
+		int start = (page - 1) * itemsPerPage;
+		int end = Math.min(page*itemsPerPage, products.size());
 		
-		request.setAttribute("productNews", productNews);		
-		request.setAttribute("productNames", productNames);		
-		request.setAttribute("productMens", productMens);		
-		request.setAttribute("productWomens", productWomens);		
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
-		
+		products = productDAO.productsInPage(products, start, end);
+		request.setAttribute("totalPage", totalPage);
+		request.setAttribute("products", products);
+		request.getRequestDispatcher("search.jsp").forward(request, response);
 		
 	}
 

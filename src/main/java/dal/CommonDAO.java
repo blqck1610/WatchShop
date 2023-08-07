@@ -69,4 +69,35 @@ public class CommonDAO extends DBContext {
 
 		return 0.0;
 	}
+
+	public void addReview(int idProduct, int userID, int rating, String name, String review, String title) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO `cls`.`review`\r\n"
+				+ "(`productId`,\r\n"
+				+ "`userID`,\r\n"
+				+ "`rate`,\r\n"
+				+ "`author`,\r\n"
+				+ "`comment`,\r\n"
+				+ "`title`)\r\n"
+				+ "VALUES\r\n"
+				+ "(?,\r\n"
+				+ "?,\r\n"
+				+ "?,\r\n"
+				+ "?,\r\n"
+				+ "?,\r\n"
+				+ "?);";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, idProduct);
+			statement.setInt(2, userID);
+			statement.setInt(3, rating);
+			statement.setString(4, name);
+			statement.setString(5, review);
+			statement.setString(6, title);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

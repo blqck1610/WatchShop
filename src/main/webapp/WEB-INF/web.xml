@@ -39,8 +39,6 @@
     <servlet-name>CartProcess</servlet-name>
     <url-pattern>/cartProcess</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <description></description>
     <display-name>Home</display-name>
@@ -70,5 +68,105 @@
   <servlet-mapping>
     <servlet-name>Process</servlet-name>
     <url-pattern>/process</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Register</display-name>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>controller.Register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckOut</display-name>
+    <servlet-name>CheckOut</servlet-name>
+    <servlet-class>controller.CheckOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOut</servlet-name>
+    <url-pattern>/checkout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckOutDone</display-name>
+    <servlet-name>CheckOutDone</servlet-name>
+    <servlet-class>controller.CheckOutDone</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOutDone</servlet-name>
+    <url-pattern>/done</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderDetails</display-name>
+    <servlet-name>OrderDetails</servlet-name>
+    <servlet-class>controller.OrderDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderDetails</servlet-name>
+    <url-pattern>/orderDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderProcess</display-name>
+    <servlet-name>OrderProcess</servlet-name>
+    <servlet-class>controller.OrderProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderProcess</servlet-name>
+    <url-pattern>/orderProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewProcess</display-name>
+    <servlet-name>ReviewProcess</servlet-name>
+    <servlet-class>controller.ReviewProcess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewProcess</servlet-name>
+    <url-pattern>/reviewProcess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>controller.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OnSale</display-name>
+    <servlet-name>OnSale</servlet-name>
+    <servlet-class>controller.OnSale</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OnSale</servlet-name>
+    <url-pattern>/onsale</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Filter</display-name>
+    <servlet-name>Filter</servlet-name>
+    <servlet-class>controller.Filter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Filter</servlet-name>
+    <url-pattern>/filter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MenWatches</display-name>
+    <servlet-name>MenWatches</servlet-name>
+    <servlet-class>controller.MenWatches</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MenWatches</servlet-name>
+    <url-pattern>/MenWatches</url-pattern>
   </servlet-mapping>
 </web-app>

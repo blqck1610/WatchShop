@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
 </head>
 
 <body>
@@ -16,7 +18,7 @@
 
 	<header id="header" class="row">
 		<div class="logo col">
-			<a href=""> <img width="150px"
+			<a href="home"> <img width="150px"
 				src="./assets/images/logo/logostore.png" alt=""
 				class="logo-store ml-60">
 			</a>
@@ -25,15 +27,18 @@
 		<div class="nav col col1 mlr-24">
 			<div class="row ">
 				<div class="search-header">
-					<input type="text" class="header-input-search input"
-						placeholder="tìm kiếm sản phẩm"><i class="ti-search icon"></i>
+					<form id ="searchForm" action="search">
+						<input name ="query" type="text" class="header-input-search input"
+						placeholder="tìm kiếm sản phẩm"><a href="#" onclick="document.getElementById('searchForm').submit();"><i class="ti-search icon"></i></a>
+					</form>
+					
 
 				</div>
 				<div class="user-header">
 					<div class="user-icon">
 						<i class="ti-user icon js-user-icon"></i> <i
-							class="ti-shopping-cart icon js-cart-icon"><sub>${(cart != null) ? cart.items.size() : "0" } </sub>
-						</i>
+							class="ti-shopping-cart icon js-cart-icon"><sub>${(cart != null) ? cart.items.size() : "0" }
+						</sub> </i>
 					</div>
 
 
@@ -42,634 +47,75 @@
 			<ul class="row">
 				<li><a href="#" class="nav__link">Thương hiệu</a>
 					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
+						<li class="col flex-start"><a href="">Các hãng bán chạy</a>
+							<ul class="col flex-start">
 								<li><a href=""><i class="ti-angle-right"></i><span>
 											Daniel Walington(DW)</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Seiko</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Rolex</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Orient</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Timex</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Casio</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Citizen</span></a></li>
 
 							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
+						<li class="col flex-start"><a href="">Khuyên dùng</a>
+							<ul class="col flex-start">
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Rolex</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											G-shock</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Seiko</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Rolex</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											KOI</span></a></li>
+
 
 							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
+						<li class="col flex-start"><a href="">Các dòng đặc biệt</a>
+							<ul class="col flex-start">
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Limited Edition</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Đồng hồ quân đội</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Đồng hồ điện tử</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Đồng hồ đính kim cương</span></a></li>
+
 
 							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
+						<li class="col flex-start"><a href="">Thụy Sỹ</a>
+							<ul class="col flex-start">
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Longisness</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Tossi</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Tissot</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Rado</span></a></li>
 								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
+											Movado</span></a></li>
+
 
 							</ul></li>
 
 					</ul></li>
 				<li><a href="#" class="nav__link">Nam</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Khoảng giá</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>Dưới
-											2tr</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											2tr - 3tr</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>3tr
-											- 4tr</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>4tr
-											- 5tr</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											trên 5tr</span></a>
-							</ul></li>
-						<li class="col"><a href="">Chất Liệu Dây</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thương Hiệu hot</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">SWISS MADE(THỤY SỸ)</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các Dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
 				<li><a href="#" class="nav__link">Nữ</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khác</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
 				<li><a href="#" class="nav__link">Cặp đôi</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khác</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
 				<li><a href="#" class="nav__link">Trang sức</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khác</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
 				<li><a href="#" class="nav__link">Dịch Vụ</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khác</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
-				<li><a href="#" class="nav__link">Liên hệ</a>
-					<ul class="row sub-nav">
-						<li class="col"><a href="">Các hãng bán chạy</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khuyên dùng</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Các dòng đặc biệt</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Thụy Sỹ</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-						<li class="col"><a href="">Khác</a>
-							<ul class="col">
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-								<li><a href=""><i class="ti-angle-right"></i><span>
-											Daniel Walington(DW)</span></a></li>
-
-							</ul></li>
-					</ul></li>
-
+				<li><a href="contact.jsp" class="nav__link">Liên hệ</a>
 			</ul>
 		</div>
 	</header>
@@ -752,7 +198,7 @@
 					<div class="main-content">
 						<h3>Welcome ${sessionScope.user.username}!</h3>
 						<h4>Đơn hàng của bạn</h4>
-						<a href="" class="row button"> <span><i
+						<a href="orderDetails" class="row button"> <span><i
 								class="ti-time icon"></i> Xem tất cả đơn hàng</span> <i
 							class="ti-arrow-right icon"></i>
 						</a>
@@ -785,7 +231,7 @@
 
 			<div id="cart-tab" class=" js-tab-contents ">
 
-				<form class="form col js-cart-form " action="">
+				<form class="form col js-cart-form " action="checkout">
 					<div class="form-title">
 						<p>Giỏ hàng(${(cart != null) ? cart.items.size() : "0" })</p>
 					</div>
@@ -794,8 +240,8 @@
 
 						<div class="main-content">
 							<div class="cart-items col1">
-								
-								<c:forEach var ="item" items="${cart.items }">
+
+								<c:forEach var="item" items="${cart.items }">
 
 									<div class="cart-item">
 										<!-- img & label -->
@@ -814,20 +260,19 @@
 										<div class="row no-wrap">
 											<div class="col">
 												<c:if test="${item.key.saleValue > 0}">
-												<div class="row no-wrap">
-													<span class="col new-price">$${(item.key.price - item.key.price
-								* item.key.saleValue / 100)  }</span> <span
-														class="col old-price">$${item.key.price }</span>
-												</div>
+													<div class="row no-wrap">
+														<span class="col new-price">$${(item.key.price -
+															item.key.price * item.key.saleValue / 100) }</span> <span
+															class="col old-price">$${item.key.price }</span>
+													</div>
 												</c:if>
-												
+
 												<c:if test="${item.key.saleValue == 0}">
-												<span class="col new-price">$${item.key.price }</span>
+													<span class="col new-price">$${item.key.price }</span>
 												</c:if>
 											</div>
 											<!-- quatity -->
-											<div class="col1 ">
-
+											<div class="col cart-quantity">
 												<div class="row ">
 													<a href="" class="sub-btn ">-</a> <input
 														style="width: 30% !important; margin: 0;" readonly
@@ -837,14 +282,14 @@
 											</div>
 										</div>
 										<div class="row ">
-											<span class="new-price col">total: $${(item.key.price - item.key.price
-								* item.key.saleValue / 100) * item.value}</span>
+											<span class="new-price col">total: $${(item.key.price
+												- item.key.price * item.key.saleValue / 100) * item.value}</span>
 											<div class="col">
 												<a href="" class="mt-8">xóa khỏi giỏ hàng</a>
 											</div>
 											<div class="hr"></div>
 										</div>
-										
+
 									</div>
 								</c:forEach>
 
@@ -854,12 +299,11 @@
 											$${cart.totalPrice } </label>
 									</div>
 									<div class="row">
-										<label class="label">saving</label> <label for=""> 
+										<label class="label">saving</label> <label for="">
 											$${cart.saving } </label>
 									</div>
 									<div class="row">
-										<label class="label">discount</label> <label for="">
-											0</label>
+										<label class="label">discount</label> <label for=""> 0</label>
 									</div>
 									<div class="row">
 										<label class="label">tax</label> <label for=""> 10% </label>

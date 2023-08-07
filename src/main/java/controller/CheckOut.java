@@ -5,23 +5,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Product;
+import jakarta.servlet.http.HttpSession;
+import model.User;
 
 import java.io.IOException;
-import java.util.List;
-
-import dal.ProductDAO;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class CheckOut
  */
-public class Home extends HttpServlet {
+public class CheckOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public CheckOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,24 +29,14 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ProductDAO productDAO = new ProductDAO();
-		 
-		List<Product> productNames = productDAO.getProducts("productName", 4);
-		List<Product> productNews = productDAO.getProducts("idProduct", 8);
-		List<Product> productMens = productDAO.getProductsByGender("Nam", 8);
-		List<Product> productWomens = productDAO.getProductsByGender("Nữ", 8);
-		
-	
-		
-		request.setAttribute("productNews", productNews);		
-		request.setAttribute("productNames", productNames);		
-		request.setAttribute("productMens", productMens);		
-		request.setAttribute("productWomens", productWomens);		
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
-		
-		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if(user == null) {
+			response.sendRedirect("login.jsp");
+		}
+		else {
+			request.getRequestDispatcher("cartDetail.jsp").forward(request, response);
+		}
 	}
 
 	/**

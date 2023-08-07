@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				
-				session.setMaxInactiveInterval(60*10);
+				session.setMaxInactiveInterval(60*100);
 				response.sendRedirect("./home");
 
 			}

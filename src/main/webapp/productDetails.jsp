@@ -1,4 +1,4 @@
-<%@page import="model.Product"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -80,8 +80,10 @@
 					<button class="btn ml-0">Mua ngay</button>
 					<form name="formSubmitCart" action="cartProcess" method="post">
 						<input name="quantity" hidden="true"
-							value="1"> <input name="idProduct"
-							hidden="true" value="${product.idProduct }"> <input
+							value="1"> 
+						<input name="idProduct"
+							hidden="true" value="${product.idProduct }"> 
+						<input
 							type="submit" class="btn ml-0 add-to-cart"
 							value="Thêm vào giỏ hàng">
 					</form>

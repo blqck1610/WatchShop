@@ -32,8 +32,8 @@ public class ProductDetails extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		String productIdRaw =(String) request.getParameter("productID");
-		String productIdRaw = "2";
+		String productIdRaw =(String) request.getParameter("idProduct");
+		
 		int numberPerPage = 8;
 		int reviewNumPage = 1;
 		int numReviews = 0;

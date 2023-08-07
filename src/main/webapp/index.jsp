@@ -1,13 +1,14 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./assets/css/styles.css" /> 
+<link rel="stylesheet" href="./assets/css/styles.css" />
 <link rel="stylesheet"
 	href="./assets/css/themify-icons/themify-icons.css">
 
@@ -23,7 +24,7 @@
 		<div class="banner"></div>
 		<!-- contents -->
 		<div id="contents ">
-		
+
 			<!-- bar -->
 			<div class="contents__bar row  pt-16">
 				<a class="contents__bar__item col" href="">
@@ -85,25 +86,28 @@
 						href="#" class="btn-show-all">Show all</a>
 				</div>
 				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					<c:set var="productNames" value="${requestScope.productNames }"></c:set>
+
+					<c:forEach items="${productNames }" var="product">
+
+						<a href="productDetails?idProduct=${product.idProduct }"  class="col item"> <img
+							src="./assets/images/product/${product.img }/${product.img }_1.jpg"
+							alt="">
+							<div class="item-name">
+								<span class="brand-label">${product.brand } </span>${product.productName }
+								<br>
+								<c:if test="${product.saleValue == 0 }">
+									<span class=""><Strong>$${product.price }</strong> </span>
+								</c:if>
+								<c:if test="${product.saleValue > 0 }">
+									<span class="new-price">$${product.price -
+										product.price*product.saleValue/100} (sale off:
+										${product.saleValue}%) </span>
+									<span class="old-price">$${product.price } </span>
+								</c:if>
+							</div>
+						</a>
+					</c:forEach>
 
 				</div>
 			</div>
@@ -115,99 +119,61 @@
 						class="btn-show-all">Show all</a>
 				</div>
 				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					<c:set var="productNames" value="${requestScope.productNews }"></c:set>
 
-				</div>
-				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					<c:forEach items="${productNames }" var="product">
 
+						<a href="productDetails?idProduct=${product.idProduct }"  class="col item"> <img
+							src="./assets/images/product/${product.img }/${product.img }_1.jpg"
+							alt="">
+							<div class="item-name">
+								<span class="brand-label">${product.brand } </span>${product.productName }
+								<br>
+								<c:if test="${product.saleValue == 0 }">
+									<span class=""><Strong>$${product.price }</strong> </span>
+								</c:if>
+								<c:if test="${product.saleValue > 0 }">
+									<span class="new-price">$${product.price -
+										product.price*product.saleValue/100} (sale off:
+										${product.saleValue}%) </span>
+									<span class="old-price">$${product.price } </span>
+								</c:if>
+							</div>
+						</a>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="hr"></div>
 			<!-- nam -->
 			<div class="container row">
 				<div class="container__title col ">
-					<span class="container__label">Đồng Hồ Nam </span> <a href="#"
+					<span class="container__label">Đồng Hồ Nam </span> <a href="MenWatches"
 						class="btn-show-all">Show all</a>
 				</div>
 				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
 
-				</div>
-				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					<c:set var="productNames" value="${requestScope.productMens }"></c:set>
+
+					<c:forEach items="${productNames }" var="product">
+
+						<a href="productDetails?idProduct=${product.idProduct }" class="col item"> <img
+							src="./assets/images/product/${product.img }/${product.img }_1.jpg"
+							alt="">
+							<div class="item-name">
+								<span class="brand-label">${product.brand } </span>${product.productName }
+								<br>
+								<c:if test="${product.saleValue == 0 }">
+									<span class=""><Strong>$${product.price }</strong> </span>
+								</c:if>
+								<c:if test="${product.saleValue > 0 }">
+									<span class="new-price">$${product.price -
+										product.price*product.saleValue/100} (sale off:
+										${product.saleValue}%) </span>
+									<span class="old-price">$${product.price } </span>
+								</c:if>
+							</div>
+						</a>
+					</c:forEach>
 
 				</div>
 			</div>
@@ -219,25 +185,28 @@
 						class="btn-show-all">Show all</a>
 				</div>
 				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					<c:set var="productNames" value="${requestScope.productWomens }"></c:set>
+
+					<c:forEach items="${productNames }" var="product">
+
+						<a href="productDetails?idProduct=${product.idProduct }"  class="col item"> <img
+							src="./assets/images/product/${product.img }/${product.img }_1.jpg"
+							alt="">
+							<div class="item-name">
+								<span class="brand-label">${product.brand } </span>${product.productName }
+								<br>
+								<c:if test="${product.saleValue == 0 }">
+									<span class=""><Strong>$${product.price }</strong> </span>
+								</c:if>
+								<c:if test="${product.saleValue > 0 }">
+									<span class="new-price">$${product.price -
+										product.price*product.saleValue/100} (sale off:
+										${product.saleValue}%) </span>
+									<span class="old-price">$${product.price } </span>
+								</c:if>
+							</div>
+						</a>
+					</c:forEach>
 
 				</div>
 			</div>
@@ -249,25 +218,7 @@
 						class="btn-show-all">Show all</a>
 				</div>
 				<div class="container__items row">
-					<a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-						<div class="item-name">
-							<span class="brand-label">Casio </span>Arceau Cavales Quartz
-							Black Dial Ladies Watch 045726WW00 <br> <span class="price">Giá
-								bán: <span>22.750.000<sup>đ</sup></span>
-							</span>
-						</div>
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a> <a class="col item"> <img
-						src="./assets/images/product/victorinox-maverick-quartz-black-dial-men_s-watch-241884.jpg"
-						alt="">
-					</a>
+					
 
 				</div>
 			</div>
@@ -308,26 +259,15 @@
 				</div>
 			</div>
 			<!-- social page -->
-			<div class="hr"></div>
-			<div class="container row social-page">
-				<div class="social-items">
-					<span class="">Social page </span> <a href="#"><i
-						class="ti-facebook social-icon"></i></a> <a href="#"><i
-						class="ti-instagram social-icon"></i></a> <a href="#"><i
-						class="ti-youtube social-icon"></i></a> <a href="#"><i
-						class="ti-twitter-alt social-icon"></i></a>
-				</div>
-				<a href="tel:+123456789">hotline: 0123456789</a>
-
-			</div>
+			
 		</div>
 
 
 		<!-- footer -->
 		<%@ include file="footer.jsp"%>
 
-		
-	
+
+
 
 	</div>
 
@@ -337,8 +277,7 @@
 		<script type="text/javascript">
 			console.log('${userError}');
 			// show error login
-		//	showError();
-
+			//	showError();
 		</script>
 	</c:if>
 </body>
