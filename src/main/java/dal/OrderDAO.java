@@ -1,5 +1,6 @@
 package dal;
 
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class OrderDAO extends DBContext {
 
 	public boolean doneAddOrder(Cart cart, int userId) {
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			connection.setAutoCommit(false);
 
 			String sql = "INSERT INTO `cls`.`order`\r\n" + "(`userID`,\r\n" + "`totalmoney`)\r\n" + "VALUES\r\n"
@@ -59,13 +61,26 @@ public class OrderDAO extends DBContext {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 		return false;
 	}
 
-	public List<OrderDetail> getOrderDetails(int orderID, int userId) {
+	public List<OrderDetail> getOrderDetails(int orderID ) {
 		String sql = "SELECT * FROM cls.orderdetail where orderID = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, orderID);
 			ResultSet rs = statement.executeQuery();
@@ -81,14 +96,27 @@ public class OrderDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 		return null;
 	}
 
 	public List<Order> getOrders(int userId) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM cls.order WHERE userID = ?;";
+		String sql = "SELECT * FROM cls.order where userID = ? order by date desc;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, userId);
 			ResultSet rs = statement.executeQuery();
@@ -99,13 +127,25 @@ public class OrderDAO extends DBContext {
 				order.setDate(rs.getDate(2));
 				order.setUserID(3);
 				order.setTotalMoney(rs.getDouble(4));
-				order.setOrderDetails(getOrderDetails(rs.getInt(1), userId));
+				order.setOrderDetails(getOrderDetails(rs.getInt(1)));
 				orders.add(order);
 			}
 			return orders;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 		
 		
@@ -119,6 +159,7 @@ public class OrderDAO extends DBContext {
 				+ "reviewper = ?\r\n"
 				+ "WHERE `orderID` = ? AND `productID` = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, reviewPer);
 			statement.setInt(2, orderId);
@@ -136,6 +177,7 @@ public class OrderDAO extends DBContext {
 				+ "status = ?\r\n"
 				+ "WHERE `orderID` = ? AND `productID` = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, "Đã giao");
 			statement.setInt(2, orderId);
@@ -145,7 +187,92 @@ public class OrderDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
+
+	public List<Order> getAllOrders() {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM cls.order order by date desc;";
+		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			ResultSet rs = statement.executeQuery();
+			List<Order> orders = new ArrayList<Order>();
+			while(rs.next()) {
+				Order order = new Order();
+				order.setId(rs.getInt(1));
+				order.setDate(rs.getDate(2));
+				order.setUserID(rs.getInt(3));
+				order.setTotalMoney(rs.getDouble(4));
+				order.setOrderDetails(getOrderDetails(rs.getInt(1)));
+				orders.add(order);
+			}
+			return orders;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		return null;
+	}
+
+	public void editStatus(String status, int orderId, int idProduct) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE `cls`.`orderdetail`\r\n"
+				+ "SET\r\n"
+				+ "\r\n"
+				+ "`status` = ? \r\n"
+				+ "\r\n"
+				+ "WHERE `orderID` = ? AND `productID` = ? ;";
+		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, status);
+			statement.setInt(2, orderId);
+			statement.setInt(3, idProduct);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		
+	}
+	
 
 }

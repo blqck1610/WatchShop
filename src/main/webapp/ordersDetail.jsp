@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="./assets/css/themify-icons/themify-icons.css">
 <link rel="stylesheet" href="./assets/css/cart.css">
-<title>Document</title>
+<title>PL Store |  Order list</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
 
 						<div class="ordered-wrapper ">
 							<div class="row orderd">
-								<span class="order-id">no. ${orders.indexOf(order) + 1} </span>
+								<span class="order-id">${order.orderDetails.size() } item </span>
 								<span class="order-date">date: ${order.date }</span> <span
 									class="order-total-price">price : $${order.totalMoney }</span>
 							</div>
@@ -109,16 +109,19 @@
 													<a class="close-btn" href="">close</a>
 													<h2 class="reviews-title">Review</h2>
 													<div class="row form-review-rating">
-														<input type="number" name="orderId" value="${order.id  }"
-															hidden> <input type="number" name="idProduct"
-															value="${item.product.idProduct }" hidden> <input
-															type="number" name="rvper" value="0" hidden> <input
-															type="number"  name="rating" hidden> <i
-															class="ti-star review-rating" value="1"></i> <i
-															class="ti-star review-rating" value="2"></i> <i
-															class="ti-star review-rating" value="3"></i> <i
-															class="ti-star review-rating" value="4"></i> <i
-															class="ti-star review-rating" value="5"></i>
+														<input type="number" name="orderIdRv" value="${order.id }"
+															hidden = "true">
+															
+															 <input type="number" name="idProduct"
+															value="${item.product.idProduct }" hidden="true"> <input
+															type="number" name="rvper" value="0" hidden = "true" > 
+															<input
+															type="text" name="rating" value = "0" class = "rating-input" hidden = "true"> <i
+															class="ti-star review-rating" ></i> <i
+															class="ti-star review-rating" ></i> <i
+															class="ti-star review-rating" ></i> <i
+															class="ti-star review-rating" ></i> <i
+															class="ti-star review-rating" ></i>
 														
 
 													</div>
@@ -136,7 +139,7 @@
 
 												</form>
 											</div>
-											<c:if test="${item.status.equals('Đang giao hàng') }">
+											<c:if test="${item.status.equals('Đang vận chuyển') }">
 												<a
 													href="orderProcess?rvper=1&idProduct=${item.product.idProduct }&orderId=${order.id}"
 													class="review-btn ">đã nhận được hàng</a>

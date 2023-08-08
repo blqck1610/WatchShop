@@ -1,5 +1,6 @@
 package dal;
 
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ public class CommonDAO extends DBContext {
 
 		String sql = "SELECT * FROM cls.saledetails where idproduct = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, idProduct);
 			ResultSet result = statement.executeQuery();
@@ -24,6 +26,18 @@ public class CommonDAO extends DBContext {
 
 		} catch (SQLException e) {
 			// TODO: handle exception
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 		return 0;
 	}
@@ -33,6 +47,7 @@ public class CommonDAO extends DBContext {
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM cls.review where productId = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, idProduct);
 			ResultSet rs = statement.executeQuery();
@@ -47,6 +62,18 @@ public class CommonDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
@@ -55,6 +82,7 @@ public class CommonDAO extends DBContext {
 	public double getAvgScore(int idProduct) {
 		String sql = "SELECT avg(rate) FROM cls.review where productId = ?;";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, idProduct);
 			ResultSet rs = statement.executeQuery();
@@ -65,6 +93,18 @@ public class CommonDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return 0.0;
@@ -87,6 +127,7 @@ public class CommonDAO extends DBContext {
 				+ "?,\r\n"
 				+ "?);";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, idProduct);
 			statement.setInt(2, userID);
@@ -98,6 +139,18 @@ public class CommonDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 }

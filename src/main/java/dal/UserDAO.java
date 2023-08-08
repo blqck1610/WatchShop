@@ -1,6 +1,7 @@
 package dal;
 
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class UserDAO extends DBContext {
 
 	public User isExistUsername(String username) {
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			String query = "SELECT * " + "FROM `cls`.`useraccount`\r\n" + "where username = ? ";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, username);
@@ -55,6 +57,18 @@ public class UserDAO extends DBContext {
 
 		} catch (SQLException e) {
 			// TODO: handle exception
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;

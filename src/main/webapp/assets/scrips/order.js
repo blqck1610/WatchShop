@@ -18,7 +18,8 @@ const stars = document.querySelectorAll('.form-review-rating .review-rating')
 
 stars.forEach((star, index1) =>{
   star.addEventListener('click', ()=>{
-    document.querySelector('.form-review-rating input').value = index1;
+    document.querySelector('.rating-input').value = index1;
+    
     stars.forEach((star, index2) =>{
       index1 >= index2 ? star.classList.add("selected") : star.classList.remove("selected");
     });

@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBContext {
-	private static String DB_NAME = "cls";
-	private static String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
-	private static String USER_NAME = "root";
-	private static String PASSWORD = "nguyen00";
+	protected static String DB_NAME = "cls";
+	protected static String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
+	protected static String USER_NAME = "root";
+	protected static String PASSWORD = "nguyen00";
 	
 	protected Connection connection;
 

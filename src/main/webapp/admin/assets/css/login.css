@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+.row{
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    margin: 12px 32px;
+}
+.contents{
+	margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    min-width: 50%
+}
+.form-title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    
+}
+.form label{
+    width: 80%;
+    display: block;
+    margin: 16px 32px 8px;
+}
+
+.form .input{
+    margin: 4px 32px 8px;
+    display: block;
+    padding: 8px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form input[type="checkbox"]{
+    margin: 4px 20px 12px 40px;
+}
+.form input[type="submit"]{
+    width: 30%;
+    margin: 12px 32px ;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.form a{
+    color: black;
+}

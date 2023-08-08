@@ -1,0 +1,11 @@
+.orderd {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    padding: 12px;
+    background-color: rgb(234, 232, 234);
+    border: 1px solid rgba(75,75,75,0.1);
+}
+.ordered-detail{
+    
+}

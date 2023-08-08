@@ -67,6 +67,8 @@
 .search-result-main{
     margin-bottom: 32px;
     min-height: 600px;
+    justify-content: flex-start;
+    gap: calc(20%/5);
 }
 .search-result-main-item {
     width: 20%;

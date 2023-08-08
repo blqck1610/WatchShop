@@ -41,9 +41,12 @@ public class ReviewProcess extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String orderIdRaw = request.getParameter("orderId");
+		String orderIdRaw = request.getParameter("orderIdRv");
 		String idProductRaw = request.getParameter("idProduct");
 		String rvPer = request.getParameter("rvper");
+		
+		String ratingraw = request.getParameter("rating");
+		
 		
 		String name = request.getParameter("name");
 		String title = request.getParameter("title");
@@ -51,9 +54,13 @@ public class ReviewProcess extends HttpServlet {
 		
 		
 		
+		
 		int orderId = Integer.parseInt(orderIdRaw);
 		int idProduct = Integer.parseInt(idProductRaw);
-		int rating = 4;
+		if(ratingraw == null ) {
+			ratingraw = "0";
+		}
+		int rating = Integer.parseInt(ratingraw) + 1;
 		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");

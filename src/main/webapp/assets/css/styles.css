@@ -28,11 +28,12 @@ html {
 	text-align: center;
 }
 
-.flex-start{
+.flex-start {
 	justify-content: flex-start !important;
 	align-items: flex-start !important;
 }
-.f-13{
+
+.f-13 {
 	font-size: 13px !important;
 }
 
@@ -231,6 +232,7 @@ html {
 .icon {
 	padding: 10px 10px;
 	font-size: 16px;
+	color: #000;
 	display: inline-block;
 
 }
@@ -371,6 +373,7 @@ html {
 
 .contents__bar {
 	background-color: #fff;
+	max-width: 100%;
 	width: 1000px;
 	box-shadow: 0 -9px 9px rgba(0, 0, 0, 0.2);
 	margin-bottom: 5px;
@@ -484,7 +487,7 @@ html {
 }
 
 .container .container__items {
-	
+
 	justify-content: space-around;
 	padding: 12px;
 }
@@ -494,7 +497,7 @@ html {
 	min-width: calc((100% / 4) - 20px);
 	background-color: #fff;
 	margin: 12px 0;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 	transition: 0.6s;
 	color: #000;
 	text-decoration: none;
@@ -765,7 +768,7 @@ html {
 	width: 60px;
 }
 
-.cart-quantity{
+.cart-quantity {
 	max-width: 60%;
 	width: 60%;
 }
@@ -1160,15 +1163,15 @@ html {
 
 .ordered-item .review-btn {
 	text-decoration: none;
-    text-transform: uppercase;
-    margin: 12px 0;
-    font-weight: 500;
-    font-size: 18px !important;
-    padding: 8px 20px;
-    border: 1px solid #000;
-    background-color: #fff;
-    color: #000;
-    display: inline-block;
+	text-transform: uppercase;
+	margin: 12px 0;
+	font-weight: 500;
+	font-size: 18px !important;
+	padding: 8px 20px;
+	border: 1px solid #000;
+	background-color: #fff;
+	color: #000;
+	display: inline-block;
 }
 
 .ordered-item .review-btn:hover {
@@ -1271,6 +1274,10 @@ html {
 	flex-direction: column;
 }
 
+.logo-store {
+	width: 160px;
+}
+
 
 
 /* .wrapper a{
@@ -1298,3 +1305,76 @@ html {
 		transform: translateX(0);
 	}
 }
+
+/*mobile  */
+@media all and (max-width: 739px) {
+
+	.nav-header,
+	.js-user-icon {
+		display: none;
+	}
+
+	.logo-store {
+		margin: 0;
+	}
+
+	#header {
+		position: relative;
+		justify-content: center;
+	}
+	.search-header{
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.ptb-160{
+		padding: 0!important;
+	}
+	.col {
+		flex-wrap: nowrap;
+	}
+
+	.banner {
+		width: 100%;
+		margin-top: 0;
+
+	}
+
+	.container {
+		margin: 0;
+		width: 100%;
+	}
+
+	.logo-store {
+		width: 110px;
+	}
+
+	.icon {
+		font-size: 18px;
+		padding: 15px;
+	}
+
+	.input {
+		padding: 12px 8px;
+	}
+
+	.container__items .item {
+		max-width: calc(100%/2 - 20px);
+		width: calc(100%/2 - 20px);
+	}
+
+	.container .container__items {
+		flex-wrap: wrap;
+	}
+
+	.social-icon {
+		padding: 16px;
+	}
+	.mobile-nowrap{
+		flex-wrap: nowrap;
+	}
+}
+
+/* tablet */
+@media all and (min-width: 46.25em) and (max-width: 63.9375em) {}
+
+@media all and (min-width: 64em) {}

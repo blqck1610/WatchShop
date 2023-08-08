@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/styles.css">
 <link rel="stylesheet"
 	href="./assets/css/themify-icons/themify-icons.css">
-<title>Insert title here</title>
+<title>PL Store| contact</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/cart.css">
     <link rel="stylesheet" href="./assets/css/themify-icons/themify-icons.css">
-    <title>Document</title>
+    <title>Done</title>
 </head>
 <body>
    

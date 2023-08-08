@@ -6,6 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 
 
@@ -18,22 +19,24 @@
 
 	<header id="header" class="row">
 		<div class="logo col">
-			<a href="home"> <img width="150px"
+			<a href="home"> <img 
 				src="./assets/images/logo/logostore.png" alt=""
 				class="logo-store ml-60">
 			</a>
 		</div>
 
 		<div class="nav col col1 mlr-24">
-			<div class="row ">
-				<div class="search-header">
-					<form id ="searchForm" action="search">
-						<input name ="query" type="text" class="header-input-search input"
-						placeholder="tìm kiếm sản phẩm"><a href="#" onclick="document.getElementById('searchForm').submit();"><i class="ti-search icon"></i></a>
-					</form>
-					
+			<div class="row mobile-nowrap">
+				<form id="searchForm" action="search">
+					<div class="search-header">
+						<input name="search" type="text" class="header-input-search input"
+							placeholder="tìm kiếm sản phẩm"><a href="#"
+							onclick="document.getElementById('searchForm').submit();"><i
+							class="ti-search icon"></i></a>
 
-				</div>
+
+					</div>
+				</form>
 				<div class="user-header">
 					<div class="user-icon">
 						<i class="ti-user icon js-user-icon"></i> <i
@@ -44,7 +47,7 @@
 
 				</div>
 			</div>
-			<ul class="row">
+			<ul class="row  nav-header">
 				<li><a href="#" class="nav__link">Thương hiệu</a>
 					<ul class="row sub-nav">
 						<li class="col flex-start"><a href="">Các hãng bán chạy</a>

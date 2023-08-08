@@ -1,5 +1,6 @@
 package dal;
 
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ public class ProductDAO extends DBContext {
 
 		try {
 			PreparedStatement statement = connection.prepareStatement(sqlQurery);
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			statement.setInt(1, id);
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
@@ -31,6 +33,18 @@ public class ProductDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
@@ -40,7 +54,7 @@ public class ProductDAO extends DBContext {
 
 		String sql = "SELECT * FROM cls.product \r\n" + "order by ? limit ? ;";
 		try {
-
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, req);
 			statement.setInt(2, limit);
@@ -64,6 +78,18 @@ public class ProductDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
@@ -74,7 +100,7 @@ public class ProductDAO extends DBContext {
 
 		String sql = "SELECT * FROM cls.product \r\n" + "where gender =  ? limit ? ;";
 		try {
-
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, req);
 			statement.setInt(2, limit);
@@ -97,6 +123,18 @@ public class ProductDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
@@ -111,15 +149,22 @@ public class ProductDAO extends DBContext {
 		return resultList;
 	}
 	
-	public List<Product> getProducts(String query) {
+	public List<Product> getProductsBySearch(String search, int limit) {
 
-		String sql = "SELECT * FROM cls.product where 1 = 1 and ( brand like '%?%' or price like '%?%' or productName like '%?%';";
+		String sql = "SELECT * FROM cls.product where 1 = 1 and ( brand like ? or price like ? or productName like ? )  LIMIT ?  ";
 		try {
-
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			search = "%"+search+"%";
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, query);
-			statement.setString(2, query);
-			statement.setString(3, query);
+			
+			statement.setString(1, search);
+			
+			statement.setString(2, search);
+			
+			statement.setString(3, search);
+			
+			statement.setInt(4, limit);
+			
 			
 			ResultSet resultSet = statement.executeQuery();
 			List<Product> products = new ArrayList<>();
@@ -140,8 +185,23 @@ public class ProductDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
-		return null;
+		return new ArrayList<>();
 	}
+
+	
+	
 }

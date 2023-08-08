@@ -1,5 +1,6 @@
 package dal;
 
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,9 +13,10 @@ import model.Product;
 
 public class CartDAO extends DBContext {
 
-	public Cart getCart(int userID) {
+	public Cart getCart(int userID)  {
 		// TODO Auto-generated method stub
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			String sqlQuery = "SELECT * FROM cart where userID = ?";
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			statement.setInt(1, userID);
@@ -32,15 +34,28 @@ public class CartDAO extends DBContext {
 
 		} catch (SQLException e) {
 			// TODO: handle exception
+		} finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
 	}
 
-	private Cart createNewCart(int userID) {
+	private Cart createNewCart(int userID)  {
 		// TODO Auto-generated method stub
 		String sqlQuery = "INSERT INTO `cls`.`cart`\r\n" + "(`userID`,\r\n" + "`items`)\r\n" + "VALUES\r\n" + "(?,?);";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			statement.setInt(1, userID);
 			statement.setString(2, "");
@@ -49,6 +64,18 @@ public class CartDAO extends DBContext {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		return null;
@@ -79,37 +106,43 @@ public class CartDAO extends DBContext {
 //		return listItems;
 //	}
 
-	public void addItem(String item, int userID) {
+	public void addItem(String item, int userID)  {
 		String sql = "select item from cart where id = ?";
 		try {
+			connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+
 			statement.setInt(1, userID);
-			
+
 			ResultSet rs = statement.executeQuery();
 			String curItem = "";
-			if(rs.next()) {
+			if (rs.next()) {
 				curItem = rs.getString("item");
 			}
-			curItem += item +',';
-			sql = "UPDATE `cls`.`cart`\r\n"
-					+ "SET\r\n"
-					+ "`items` = ?,\r\n"
-					+ "WHERE  `userID` = ?;";
+			curItem += item + ',';
+			sql = "UPDATE `cls`.`cart`\r\n" + "SET\r\n" + "`items` = ?,\r\n" + "WHERE  `userID` = ?;";
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, curItem);
 			statement.setInt(2, userID);
 			int kq = statement.executeUpdate();
 			System.out.println(kq);
-			
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			/*
+			 * This block should be added to your code You need to release the resources
+			 * like connections
+			 */
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
-		
-		 
 
 	}
 
