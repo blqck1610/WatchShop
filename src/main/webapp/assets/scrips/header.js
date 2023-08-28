@@ -63,11 +63,7 @@ loginRequest.onclick = function(event) {
 	event.preventDefault();
 }
 
-signInRequest.onclick = function(event) {
-	loginForm.classList.add('hide-modal');
-	signInForm.classList.remove('hide-modal');
-	event.preventDefault();
-}
+
 
 
 
@@ -122,5 +118,9 @@ function showLoginForm(){
 }
 
 // userIcon.addEventListener('click', showLoginForm());
+
+
+
+
 
 

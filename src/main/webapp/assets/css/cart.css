@@ -125,3 +125,12 @@
 .voucher button{
     padding: 4px 8px;
 }
+.title-address{
+	justify-content: flex-start;
+	
+}
+.title-address>span{
+	width: 30%;
+	max-width: 30%;
+	padding: 12px;
+	}

@@ -50,7 +50,7 @@
 							class="ti-arrow-right icon"></i>
 						</a>
 						<h4>Địa chỉ của bạn</h4>
-						<a href="" class="row button"> <span><i
+						<a href="address.jsp" class="row button"> <span><i
 								class="ti-time icon"></i> Chỉnh sửa địa chỉ</span> <i
 							class="ti-arrow-right icon"></i>
 						</a>

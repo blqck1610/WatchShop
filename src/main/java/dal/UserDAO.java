@@ -73,4 +73,57 @@ public class UserDAO extends DBContext {
 
 		return null;
 	}
+	public boolean isInsertNewUser(User user) {
+		if(isExistUsername(user.getUsername()) != null) {
+			return false;
+		}
+		else {
+			try {
+				connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+				String sql = "INSERT INTO `cls`.`useraccount`\r\n"
+						+ "(`username`,\r\n"
+						+ "`password`,\r\n"
+						+ "`fullname`,\r\n"
+						+ "`email`,\r\n"
+						+ "`gender`)\r\n"
+						+ "VALUES\r\n"
+						+ "(?,\r\n"
+						+ "?,\r\n"
+						+ "?,\r\n"
+						+ "?,\r\n"
+						+ "?);";
+				PreparedStatement statement = connection.prepareStatement(sql);
+				statement.setString(1, user.getUsername());
+				statement.setString(2, user.getPassword());
+				statement.setString(3, user.getFullname());
+				statement.setString(4, user.getEmail());
+				statement.setString(5, user.getGender());
+				int check = statement.executeUpdate();
+				if(check > 0) {
+					return true;
+				}
+				else {
+					return false;
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				/*
+				 * This block should be added to your code You need to release the resources
+				 * like connections
+				 */
+				if (connection != null)
+					try {
+						connection.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+			return false;
+		}
+	}
 }

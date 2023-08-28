@@ -42,10 +42,10 @@ public class HomeFilter extends HttpFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		String url = httpRequest.getServletPath();
-		if (url.endsWith(".jsp") && ! url.contains("/admin")) {
-			httpResponse.sendRedirect("home");
-			
-		}
+//		if (url.endsWith(".jsp") && ! url.contains("/admin")) {
+//			httpResponse.sendRedirect("home");
+//			
+//		}
 		
 		
 		

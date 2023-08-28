@@ -160,7 +160,8 @@
 							<input class="submit-form" type="submit" value="Đăng nhập">
 						</div>
 						<div class="row">
-							<a href="" class="forgot-password">Quên mật khẩu?</a> <a href="#"
+							<a href="" class="forgot-password">Quên mật khẩu?</a> 
+							<a href="register.jsp"
 								class="sign-in js-sign-in-request">Chưa có tài khoản?</a>
 						</div>
 					</div>
@@ -175,18 +176,27 @@
 					</div>
 
 					<div class="main-content">
-						<label for="sign-in-input-username">Tên tài khoản</label> <input
-							type="text" id="sign-in-input-username"
-							placeholder="Nhập username "> <label
-							for="sign-in-input-email">Email</label> <input type="email"
-							id="sign-in-input-email" placeholder="nhập địa chỉ email">
-						<label for="sign-in-input-password">Mật khẩu</label> <input
-							type="password" id="sign-in-input-password"
-							placeholder="nhập mật khẩu"> <label
-							for="sign-in-input-re-password">nhập lại mật khẩu</label> <input
-							type="password" id="sign-in-input-re-password"
+						<label for="sign-in-input-username">Tên tài khoản</label> 
+						<input
+							type="text" id="sign-in-input-username" class="nor-input"
+							placeholder="Nhập username ">
+						
+						<label
+							for="sign-in-input-email">Email</label> 
+							<input type="email"
+							id="sign-in-input-email" class="nor-input" placeholder="nhập địa chỉ email">
+						
+						<label for="sign-in-input-password">Mật khẩu</label> 
+						<input
+							type="password" id="sign-in-input-password" class="nor-input"
+							placeholder="nhập mật khẩu"> 
+						
+						<label
+							for="sign-in-input-re-password">nhập lại mật khẩu</label> 
+							<input
+							type="password" id="sign-in-input-re-password" class="nor-input"
 							placeholder="nhập lại mật khẩu">
-
+						
 						<div class="row">
 							<input class="submit-form" type="submit" value="Đăng Ký">
 						</div>

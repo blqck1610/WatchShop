@@ -646,7 +646,8 @@ html {
 .slide-out {
 	animation-name: showModal;
 	animation-duration: 0.5s;
-	min-width: 450px;
+	width: 450px;
+	max-width: 100%;
 	min-height: 100%;
 	width: 450px;
 	background-color: #fff;
@@ -1322,13 +1323,16 @@ html {
 		position: relative;
 		justify-content: center;
 	}
-	.search-header{
+
+	.search-header {
 		display: flex;
 		flex-wrap: nowrap;
 	}
-	.ptb-160{
-		padding: 0!important;
+
+	.ptb-160 {
+		padding: 0 !important;
 	}
+
 	.col {
 		flex-wrap: nowrap;
 	}
@@ -1369,9 +1373,21 @@ html {
 	.social-icon {
 		padding: 16px;
 	}
-	.mobile-nowrap{
+
+	.mobile-nowrap {
 		flex-wrap: nowrap;
 	}
+}
+
+.invalid-input {
+	border: 2px solid rgb(255, 156, 16);
+}
+
+.error-message {
+	background-color: red;
+	color: aliceblue;
+	/*padding: 4px;*/
+	margin: 4px 0 8px;
 }
 
 /* tablet */
